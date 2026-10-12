@@ -21,26 +21,24 @@ Still in progress:
 
 ## How to Run
 Built with Processing.
-Processing version: [Your version]
+Processing version: Processing Java
 
-[After the project files are uploaded, identify the
-project folder and main .pde file to open and run.]
+calculator.pde
+button.pde
 
 ## Controls
 Mouse:
-[Explain how to use the buttons.]
+When you hover over a button it will turn grey. To make a button operate you need to release the mouse. 
 
 Keyboard:
-[List keys that currently work and what they do.
-Identify planned controls as not yet implemented.]
+Buttons 1 and 2 are functional on the keyboard
 
 ## Project Files
-[Identify the main sketch and other tabs or assets
-you will upload.]
+calculator.pde
+button.pde
 
 ## Testing
-[Record one test: actions, expected result,
-and actual result.]
+6 + 2 = 8 the result shown was 8. 
 
 ## Next Step
-[Name the specific behavior you will build or fix next.]
+Make more keyboard buttons work.
