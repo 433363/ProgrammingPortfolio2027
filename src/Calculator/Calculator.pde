@@ -69,13 +69,13 @@ void updateDisplay() {
 
 void mouseReleased() {
   // Refresh hover for the exact release position
-  for (int i = 0; i < numButtons.length; i++ ) {
-    numButtons[i].mouseOver(mouseX, mouseY);
-  }
+  //for (int i = 0; i < numButtons.length; i++ ) {
+  //  numButtons[i].mouseOver(mouseX, mouseY);
+  //}
 
-  for (int i = 0; i < opButtons.length; i++ ) {
-    opButtons[i].mouseOver(mouseX, mouseY);
-  }
+  //for (int i = 0; i < opButtons.length; i++ ) {
+  //  opButtons[i].mouseOver(mouseX, mouseY);
+  //}
 
 
   //Number buttons
@@ -88,37 +88,8 @@ void mouseReleased() {
   // Operator buttons
   for (int i = 0; i < opButtons.length; i++ ) {
     if (opButtons[i].hover == true) {
-      char clicked = opButtons[i].val;
-
-      if (clicked == '=') {
-        performCalc();
-      } else if (clicked == 'q') {
-      } else if (clicked == '+' || clicked == '-' || clicked == 'x' || clicked == '÷') {
-        op = clicked;
-        left = false;
-        newEntry = true;
-      } else if (clicked == 'C') {
-        displayVal = "0.0";
-        l = 0.0;
-        r = 0.0;
-        op = ' ';
-        left = true;
-        newEntry = true;
-      } else if (clicked == 'π') {
-        displayVal = str(PI);
-        if (left) {
-          l = PI;
-        } else {
-          r = PI;
-        }
-      }  else if (clicked == '.') {
-        if (!displayVal.contains(".")) {
-          if (left == true) {
-            displayVal += ".";
-            r = float(displayVal);
-          }
-        }
-      }
+      //handle event
+      handleEvent(opButtons[i].val, false);
     }
   }
 }
@@ -141,8 +112,6 @@ void mouseReleased() {
 //}
 
 
-
-      
 
 
 
@@ -217,7 +186,25 @@ void keyPressed() {
   } else if (key == '0' || keyCode == 99) {
     println("You hit 0" + keyCode );
     handleEvent('0', true);
-}
+  } else if (key == '+' || keyCode == 99) {
+    println("You hit +" + keyCode );
+    handleEvent('+', false);
+  } else if (key == '-' || keyCode == 99) {
+    println("You hit -" + keyCode );
+    handleEvent('-', false);
+  } else if (key == 'x' || keyCode == 99) {
+    println("You hit x" + keyCode );
+    handleEvent('x', false);
+  } else if (key == '÷' || keyCode == 99) {
+    println("You hit ÷" + keyCode );
+    handleEvent('÷', false);
+  } else if (key == '=' || keyCode == 99) {
+    println("You hit =" + keyCode );
+    handleEvent('=', false);
+  } else if (key == '.' || keyCode == 99) {
+    println("You hit ." + keyCode );
+    handleEvent('.', false);
+  }
 }
 
 
@@ -237,6 +224,36 @@ void handleEvent(char val, boolean isNum) {
       r = float(displayVal);
     }
   } else {
-    // other stuff
+    char clicked = val;
+
+    if (clicked == '=') {
+      performCalc();
+    } else if (clicked == 'q') {
+    } else if (clicked == '+' || clicked == '-' || clicked == 'x' || clicked == '÷') {
+      op = clicked;
+      left = false;
+      newEntry = true;
+    } else if (clicked == 'C') {
+      displayVal = "0.0";
+      l = 0.0;
+      r = 0.0;
+      op = ' ';
+      left = true;
+      newEntry = true;
+    } else if (clicked == 'π') {
+      displayVal = str(PI);
+      if (left) {
+        l = PI;
+      } else {
+        r = PI;
+      }
+    } else if (clicked == '.') {
+      if (!displayVal.contains(".")) {
+        if (left == true) {
+          displayVal += ".";
+          r = float(displayVal);
+        }
+      }
+    }
   }
 }
