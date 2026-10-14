@@ -111,26 +111,38 @@ void mouseReleased() {
         } else {
           r = PI;
         }
+      }  else if (clicked == '.') {
+        if (!displayVal.contains(".")) {
+          if (left == true) {
+            displayVal += ".";
+            r = float(displayVal);
+          }
+        }
       }
-
-
-
-      //if (left == true) {
-      //  l = sq(l);
-      //  displayVal =str(1);
-      //} else {
-      //  r = sq(r);
-      //  displayVal=str(r);
-      //}
     }
   }
-
-  printState();
-  // }
-  // }
 }
 
 
+
+////if (left == true) {
+////  l = sq(l);
+////  displayVal =str(1);
+////} else {
+////  r = sq(r);
+////  displayVal=str(r);
+////}
+//}
+//}
+
+//printState();
+//// }
+//// }
+//}
+
+
+
+      
 
 
 
